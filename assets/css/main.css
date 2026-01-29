@@ -1,65 +1,59 @@
-/**
-* Template Name: Medicio
-* Template URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  /* Updated Fonts: Use a slightly more sophisticated pairing */
+  /* 'Inter' is a highly readable, modern sans-serif font often used in professional UI */
+  --default-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Georgia", serif; /* A classic serif font adds a touch of traditional professionalism to headings */
+  --nav-font: "Inter", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #555555; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #3fbbc0; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #444444;  /* The default color of the main navmenu links */
-  --nav-hover-color: #3fbbc0; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #3fbbc0; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  /* Updated Colors: Moving from a teal accent to a trustworthy navy blue */
+  --background-color: #ffffff;
+  --default-color: #2c3e50; /* A deep, professional charcoal/navy for main text */
+  --heading-color: #1a252f; /* Near-black for strong heading contrast */
+  --accent-color: #004085; /* A classic, deep navy blue (Trust/Reliability) */
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff; /* White for readability against dark backgrounds */
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+/* Nav Menu Colors */
+:root {
+  --nav-color: var(--default-color);        /* Default color of main nav links */
+  --nav-hover-color: var(--accent-color);   /* Navy blue on hover */
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: var(--default-color);
+  --nav-dropdown-hover-color: var(--accent-color);
+}
 
+/* Color Presets */
 .light-background {
-  --background-color: #f7fcfc;
+  --background-color: #f4f7f9; /* A softer light gray background */
   --surface-color: #ffffff;
 }
 
 .dark-background {
-  --background-color: #060606;
+  --background-color: #1a252f; /* A very dark, almost black background */
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #252525;
+  --surface-color: #2c3e50;
   --contrast-color: #ffffff;
 }
 
 .accent-background {
-  --background-color: #3fbbc0;
+  --background-color: var(--accent-color); /* The primary navy blue background */
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #65c9cd;
+  --surface-color: #0056b3; /* A slightly lighter blue for cards within this section */
 }
 
-/* Smooth scroll */
+
+/* Ensure consistent padding/margin behavior across all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Smooth scroll (unchanged, good practice) */
 :root {
   scroll-behavior: smooth;
 }
@@ -71,16 +65,18 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+  line-height: 1.6; /* Added for better readability of paragraph text */
 }
 
 a {
   color: var(--accent-color);
   text-decoration: none;
-  transition: 0.3s;
+  transition: color 0.3s ease; /* Explicitly transition color for smoother effect */
 }
 
 a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  /* Using color-mix to subtly darken/saturate instead of just making transparent for better contrast */
+  color: color-mix(in srgb, var(--accent-color), black 15%);
   text-decoration: none;
 }
 
@@ -92,9 +88,11 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
+  line-height: 1.2; /* Tighter line height for headings */
+  margin-bottom: 0.5em; /* Standard spacing below headings */
 }
 
-/* Pulsating Play Button
+/* Pulsating Play Button (unchanged, good unique design element)
 ------------------------------*/
 .pulsating-play-btn {
   width: 94px;
@@ -104,24 +102,30 @@ h6 {
   display: block;
   position: relative;
   overflow: hidden;
+  /* Add subtle shadow for depth */
+  box-shadow: 0 4px 15px rgba(0, 64, 133, 0.3);
 }
 
+/* Pulsating Play Button (Matching the Navy Blue Aesthetic)
+------------------------------*/
 .pulsating-play-btn:before {
   content: "";
   position: absolute;
   width: 120px;
   height: 120px;
-  animation-delay: 0s;
-  animation: pulsate-play-btn 2s;
+  /* Updated animation duration for a slightly slower, calmer pulse */
+  animation: pulsate-play-btn 2.5s;
   animation-direction: forwards;
   animation-iteration-count: infinite;
-  animation-timing-function: steps;
+  /* Changed timing to ease-out for a smoother fade/scale */
+  animation-timing-function: ease-out;
   opacity: 1;
   border-radius: 50%;
-  border: 5px solid color-mix(in srgb, var(--accent-color), transparent 30%);
+  /* Using the navy blue accent color with transparency */
+  border: 5px solid color-mix(in srgb, var(--accent-color), transparent 50%);
   top: -15%;
   left: -15%;
-  background: rgba(198, 16, 0, 0);
+  background: rgba(198, 16, 0, 0); /* Keeping background transparent */
 }
 
 .pulsating-play-btn:after {
@@ -134,31 +138,22 @@ h6 {
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 15px solid #fff;
+  border-left: 15px solid #fff; /* White play arrow */
   z-index: 100;
   transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
+/* Simplified hover interaction for a cleaner, more professional feel */
 .pulsating-play-btn:hover:before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-40%) translateY(-50%);
-  width: 0;
-  height: 0;
-  border: none;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #fff;
-  z-index: 200;
-  animation: none;
-  border-radius: 0;
+    /* Stop the animation immediately on hover for a cleaner interaction */
+    animation: none;
+    opacity: 0;
 }
 
 .pulsating-play-btn:hover:after {
-  border-left: 15px solid var(--accent-color);
-  transform: scale(20);
+  /* Keep the focus on the button itself without an extreme scale */
+  border-left-color: var(--accent-color);
+  transform: translateX(-40%) translateY(-50%) scale(1.1); /* Subtle grow */
 }
 
 @keyframes pulsate-play-btn {
@@ -173,26 +168,28 @@ h6 {
   }
 }
 
-/* PHP Email Form Messages
+/* PHP Email Form Messages (Colors adjusted to the new palette)
 ------------------------------*/
 .php-email-form .error-message {
   display: none;
-  background: #df1529;
+  background: #C44C4C; /* A slightly softer, professional red */
   color: #ffffff;
   text-align: left;
   padding: 15px;
   margin-bottom: 24px;
   font-weight: 600;
+  border-radius: 4px; /* Added slight rounding */
 }
 
 .php-email-form .sent-message {
   display: none;
   color: #ffffff;
-  background: #059652;
+  background: #198754; /* A standard, professional success green */
   text-align: center;
   padding: 15px;
   margin-bottom: 24px;
   font-weight: 600;
+  border-radius: 4px;
 }
 
 .php-email-form .loading {
@@ -225,15 +222,18 @@ h6 {
   }
 }
 
+
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
   background-color: var(--background-color);
-  transition: all 0.5s;
+  transition: all 0.5s ease-in-out; /* Added timing function */
   z-index: 997;
-  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.08); /* Slightly more defined shadow */
+  position: sticky; /* Common professional practice for headers to stay visible */
+  top: 0;
 }
 
 .header .topbar {
@@ -242,39 +242,50 @@ h6 {
   height: 40px;
   padding: 0;
   transition: all 0.5s;
+  font-size: 0.9rem; /* Slightly smaller, cleaner text */
 }
 
 .header .branding {
-  min-height: 60px;
+  min-height: 70px; /* Slightly taller header for better visual presence */
   padding: 10px 0;
+  display: flex;
+  align-items: center;
 }
 
 .header .logo {
   line-height: 1;
+  display: flex; /* Aligns logo image and h1 text vertically centered */
+  align-items: center;
 }
 
 .header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+  max-height: 40px; /* Slightly larger logo image */
+  margin-right: 10px;
 }
 
 .header .logo h1 {
-  font-size: 30px;
+  font-size: 32px; /* Slightly larger site title */
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);
+  letter-spacing: -1px; /* Tighter letter spacing for a premium feel */
 }
 
 .header .cta-btn,
 .header .cta-btn:focus {
   color: var(--contrast-color);
   background: var(--accent-color);
-  font-size: 14px;
-  padding: 8px 20px;
+  font-size: 15px; /* Slightly larger text */
+  padding: 10px 24px; /* More substantial padding */
   margin: 0 5px 0 30px;
-  border-radius: 4px;
+  border-radius: 50px; /* Pill shape is often used in modern UIs */
   transition: 0.3s;
 }
+
+.header .cta-btn:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 15%); /* Subtle darken on hover */
+}
+
 
 .header .cta-btn:hover,
 .header .cta-btn:focus:hover {
